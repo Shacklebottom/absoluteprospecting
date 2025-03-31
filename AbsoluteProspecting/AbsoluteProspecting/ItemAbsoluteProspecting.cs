@@ -20,9 +20,6 @@ namespace AbsoluteProspecting
 
         public override void OnLoaded(ICoreAPI api)
         {
-            //I need to add assets!
-
-            ICoreClientAPI? capi = api as ICoreClientAPI;
             toolModes = ObjectCacheUtil.GetOrCreate(api, "proPickToolModes", () =>
             {
                 SkillItem[] modes;
@@ -40,7 +37,7 @@ namespace AbsoluteProspecting
                 }
                 else
                 {
-                    modes = new SkillItem[5];
+                    modes = new SkillItem[6];
                     modes[0] = new SkillItem() { Code = new AssetLocation("density"), Name = Lang.Get("Density Search Mode (Long range, chance based search)") };
                     modes[1] = new SkillItem() { Code = new AssetLocation("line"), Name = Lang.Get("Line Sample Mode (Searches in a straight line)") };
                     modes[2] = new SkillItem() { Code = new AssetLocation("area1"), Name = Lang.Get("Area Sample Mode (Searches in a small area)") };
@@ -49,29 +46,29 @@ namespace AbsoluteProspecting
                     modes[5] = new SkillItem() { Code = new AssetLocation("stone"), Name = Lang.Get("Stone Sample Mode (Searches a very large area for stone)") };
                 }
 
-                if (capi != null)
+                if (api is ICoreClientAPI clientApi)
                 {
-                    modes[0].WithIcon(capi, capi.Gui.LoadSvgWithPadding(new AssetLocation("textures/icons/heatmap.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
+                    modes[0].WithIcon(clientApi, clientApi.Gui.LoadSvgWithPadding(new AssetLocation("textures/icons/heatmap.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
                     modes[0].TexturePremultipliedAlpha = false;
 
-                    modes[1].WithIcon(capi, capi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_line.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
+                    modes[1].WithIcon(clientApi, clientApi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_line.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
                     modes[1].TexturePremultipliedAlpha = false;
 
-                    modes[2].WithIcon(capi, capi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_small.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
+                    modes[2].WithIcon(clientApi, clientApi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_small.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
                     modes[2].TexturePremultipliedAlpha = false;
 
-                    modes[3].WithIcon(capi, capi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_med.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
+                    modes[3].WithIcon(clientApi, clientApi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_med.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
                     modes[3].TexturePremultipliedAlpha = false;
 
-                    modes[4].WithIcon(capi, capi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_large.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
+                    modes[4].WithIcon(clientApi, clientApi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_large.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
                     modes[4].TexturePremultipliedAlpha = false;
 
-                    modes[5].WithIcon(capi, capi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_stone.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
+                    modes[5].WithIcon(clientApi, clientApi.Gui.LoadSvgWithPadding(new AssetLocation("absoluteprospecting", "textures/icons/abpro_stone.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
                     modes[5].TexturePremultipliedAlpha = false;
 
                     if (modes.Length > 6)
                     {
-                        modes[6].WithIcon(capi, capi.Gui.LoadSvgWithPadding(new AssetLocation("textures/icons/rocks.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
+                        modes[6].WithIcon(clientApi, clientApi.Gui.LoadSvgWithPadding(new AssetLocation("textures/icons/rocks.svg"), 48, 48, 5, ColorUtil.WhiteArgb));
                         modes[6].TexturePremultipliedAlpha = false;
                     }
                 }
