@@ -9,8 +9,8 @@
     "Gnomp"
   ],
   "description": "Absolute Prospecting. Prospect, Absolutely",
-  "version": "1.500.02",
+  "version": "1.500.3",
   "dependencies": {
-    "game": "1.20.3"
+    "game": ""
   }
 }
