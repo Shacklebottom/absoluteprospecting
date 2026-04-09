@@ -1,36 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
+	  <PlatformTarget>x64</PlatformTarget>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>bin\$(Configuration)\Mods\mod</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="SkiaSharp">
+      <HintPath>$(APPDATA)\Vintagestory\Lib\SkiaSharp.dll</HintPath>
+		<Private>false</Private>
+    </Reference>
+    <Reference Include="Vintagestory">
+      <HintPath>$(APPDATA)\Vintagestory\Vintagestory.dll</HintPath>
+		<Private>false</Private>
+    </Reference>
     <Reference Include="VintagestoryAPI">
-      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="VSSurvivalMod">
-      <HintPath>$(VINTAGE_STORY)/Mods/VSSurvivalMod.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VSEssentials">
-      <HintPath>$(VINTAGE_STORY)/Mods/VSEssentials.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="0Harmony">
-      <HintPath>$(VINTAGE_STORY)/Lib/0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+      <HintPath>$(APPDATA)\Vintagestory\VintagestoryAPI.dll</HintPath>
+		<Private>false</Private>
+	</Reference>
     <Reference Include="VintagestoryLib">
-      <HintPath>$(VINTAGE_STORY)/VintagestoryLib.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+      <HintPath>$(APPDATA)\Vintagestory\VintagestoryLib.dll</HintPath>
+		<Private>false</Private>
+	</Reference>
+    <Reference Include="VintagestoryServer">
+      <HintPath>$(APPDATA)\Vintagestory\VintagestoryServer.dll</HintPath>
+		<Private>false</Private>
+	</Reference>
+	<Reference Include="VSEssentials">
+		<HintPath>$(APPDATA)\Vintagestory\Mods\VSEssentials.dll</HintPath>
+		<Private>false</Private>
+	</Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(APPDATA)\Vintagestory\Mods\VSSurvivalMod.dll</HintPath>
+		<Private>false</Private>
+	</Reference>
   </ItemGroup>
 
 <ItemGroup>

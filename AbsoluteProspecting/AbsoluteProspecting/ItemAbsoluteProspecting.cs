@@ -9,8 +9,6 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
-using Vintagestory.Server;
-using Vintagestory.API.Datastructures;
 
 namespace AbsoluteProspecting
 {
