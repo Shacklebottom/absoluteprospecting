@@ -154,7 +154,7 @@ namespace AbsoluteProspecting
 
             if (DamagedBy != null && DamagedBy.Contains(EnumItemDamageSource.BlockBreaking))
             {
-                DamageItem(world, byEntity, itemslot, damage);
+                GetDamagedBy(itemslot);
             }
 
             return true;
